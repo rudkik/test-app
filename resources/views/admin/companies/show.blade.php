@@ -5,6 +5,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-12 table-responsive">
+                    <strong>Company Logo:</strong>
+                    <img src="{{ Storage::url($company->logo) }}" alt=""><br>
                     <strong>Company Name:</strong>
                     <input type="text" name="name" value="{{ $company->name }}" class="form-control" placeholder="Company name" disabled>
                     <strong>Company Email:</strong>
@@ -34,9 +36,6 @@
                             <h3>Phone: {{ $employee->phone }}</h3>
                         </div>
                     @endforeach
-
-
-
                 </div>
             </div>
         </div>

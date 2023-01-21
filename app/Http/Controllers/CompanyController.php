@@ -48,11 +48,16 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'logo' => 'dimensions:min_width=100,min_height=100'
         ]);
         $company = new Company;
         $company->name = $request->name;
         $company->email = $request->email;
         $company->address = $request->address;
+        if ($request->file('logo') != null) {
+            $image = $request->file('logo')->store('public/company');
+            $company->logo = $image;
+        }
         $company->save();
         return redirect()->route('companies.index')->with('success','Company has been created successfully.');
     }
@@ -91,11 +96,16 @@ class CompanyController extends Controller
     {
         $request->validate([
             'name' => 'required',
+            'logo' => 'dimensions:min_width=100,min_height=100'
         ]);
         $company = Company::find($id);
         $company->name = $request->name;
         $company->email = $request->email;
         $company->address = $request->address;
+        if ($request->file('logo') != null) {
+            $image = $request->file('logo')->store('public/company');
+            $company->logo = $image;
+        }
         $company->save();
         return redirect()->route('companies.index')->with('success','Company Has Been updated successfully');
     }
