@@ -22,9 +22,9 @@
                         $img = '<img alt="" border="0" hspace="10" align="" valign="" src="https://static-maps.yandex.ru/1.x/?ll='. $lng . ','. $lat .'&spn=0.016457,0.00619&l=map">';
                         }
                     @endphp
-
+                    @if(!empty($img))
                     {!! $img !!}
-
+                    @endif
                     <br>
                     <strong>Company Employees:</strong>
                     @foreach($employees as $employee)
