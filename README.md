@@ -15,7 +15,9 @@ php artisan db:seed
 php artisan storage:link
 
 Можно Авторизироватья как 
+
 логин admin
+
 пароль password
 
 
